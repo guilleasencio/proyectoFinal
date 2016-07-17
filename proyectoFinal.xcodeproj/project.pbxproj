@@ -14,6 +14,9 @@
 		3F05F7D31D3B8753000D47A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F05F7D21D3B8753000D47A3 /* Assets.xcassets */; };
 		3F05F7D61D3B8753000D47A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F05F7D41D3B8753000D47A3 /* LaunchScreen.storyboard */; };
 		3F05F7E11D3B8753000D47A3 /* proyectoFinalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05F7E01D3B8753000D47A3 /* proyectoFinalTests.swift */; };
+		3F05F7EC1D3B923B000D47A3 /* QR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05F7EB1D3B923B000D47A3 /* QR.swift */; };
+		3F05F7EE1D3B92A3000D47A3 /* detalleQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05F7ED1D3B92A3000D47A3 /* detalleQR.swift */; };
+		3F05F7F01D3B93E4000D47A3 /* QRNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05F7EF1D3B93E4000D47A3 /* QRNavigation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 		3F05F7DC1D3B8753000D47A3 /* proyectoFinalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = proyectoFinalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F05F7E01D3B8753000D47A3 /* proyectoFinalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = proyectoFinalTests.swift; sourceTree = "<group>"; };
 		3F05F7E21D3B8753000D47A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F05F7EB1D3B923B000D47A3 /* QR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QR.swift; sourceTree = "<group>"; };
+		3F05F7ED1D3B92A3000D47A3 /* detalleQR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detalleQR.swift; sourceTree = "<group>"; };
+		3F05F7EF1D3B93E4000D47A3 /* QRNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRNavigation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,9 @@
 				3F05F7D41D3B8753000D47A3 /* LaunchScreen.storyboard */,
 				3F05F7D71D3B8753000D47A3 /* Info.plist */,
 				3F05F7CF1D3B8753000D47A3 /* proyectoFinal.xcdatamodeld */,
+				3F05F7EB1D3B923B000D47A3 /* QR.swift */,
+				3F05F7ED1D3B92A3000D47A3 /* detalleQR.swift */,
+				3F05F7EF1D3B93E4000D47A3 /* QRNavigation.swift */,
 			);
 			path = proyectoFinal;
 			sourceTree = "<group>";
@@ -202,8 +211,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F05F7EE1D3B92A3000D47A3 /* detalleQR.swift in Sources */,
 				3F05F7CB1D3B8753000D47A3 /* ViewController.swift in Sources */,
+				3F05F7F01D3B93E4000D47A3 /* QRNavigation.swift in Sources */,
 				3F05F7D11D3B8753000D47A3 /* proyectoFinal.xcdatamodeld in Sources */,
+				3F05F7EC1D3B923B000D47A3 /* QR.swift in Sources */,
 				3F05F7C91D3B8753000D47A3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
