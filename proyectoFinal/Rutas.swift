@@ -9,16 +9,22 @@
 import UIKit
 import MapKit
 import CoreLocation
+import WatchConnectivity
 
-class Rutas: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate  {
+class Rutas: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, WCSessionDelegate  {
 
+    var sesion: WCSession!
     @IBOutlet weak var mapa: MKMapView!
     
     var manejador: CLLocationManager? = nil
     
     private var puntoInicial : Punto? = nil
     
+    @IBOutlet weak var camaraBoton: UIButton!
+    
     var ruta: Ruta? = nil
+    
+    private let miPicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +38,75 @@ class Rutas: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate  {
         }else{
             mapa.showsUserLocation = false
         }
+        
+        miPicker.delegate = self
 
         self.mostrarRuta()
         self.centrarMapa()
+        
+        
+        if (WCSession.isSupported()) {
+            sesion = WCSession.defaultSession()
+            sesion.delegate = self
+            sesion.activateSession()
+        }
+        
+        sesion.sendMessage(["ruta": self.ruta!], replyHandler: nil, errorHandler: nil)
+        
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        
+        // Modificamos foto de la ruta
+        self.ruta!.foto = image
+        
+        // Crear nuevo punto de interes con la imagen
+        
+        var nombre: String = "Punto de Interés"
+        let alert = UIAlertController(title: "Nuevo punto", message: "Indique un nombre:", preferredStyle: .Alert)
+        alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+            textField.text = "Punto de interés"
+        })
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            let textField = alert.textFields![0] as UITextField
+            nombre = textField.text!
+            if self.manejador!.location?.coordinate != nil {
+                var punto = CLLocationCoordinate2D()
+                punto.latitude = (self.manejador!.location?.coordinate.latitude)!
+                punto.longitude = (self.manejador!.location?.coordinate.longitude)!
+                
+                let puntoActual = Punto(nombre: nombre, coordenadas: punto, foto: image)
+                
+                self.ruta!.puntos.append(puntoActual)
+                
+                var puntoLugar = MKPlacemark(coordinate: punto, addressDictionary: nil)
+                let destino = MKMapItem(placemark: puntoLugar)
+                destino.name = nombre
+                
+                self.anotaPunto(destino)
+                let indice = (self.ruta?.puntos.count)! - 2
+                let puntoCoor = CLLocationCoordinate2D(latitude: self.ruta!.puntos[indice].coordenadas.latitude, longitude: self.ruta!.puntos[indice].coordenadas.longitude)
+                puntoLugar = MKPlacemark(coordinate: puntoCoor, addressDictionary: nil)
+                let origen = MKMapItem(placemark: puntoLugar)
+                origen.name = self.ruta!.puntos[indice].nombre
+                
+                self.obtenerRuta(origen, destino: destino)
+                
+                self.centrarMapa()
+                
+                self.sesion.sendMessage(["ruta": self.ruta!], replyHandler: nil, errorHandler: nil)
+            }
+            
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .Cancel, handler: { (action) -> Void in
+            print("Cancelar")
+        }))
+        
+        
+        picker.dismissViewControllerAnimated(true, completion: nil)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
         
     }
     
@@ -170,35 +242,74 @@ class Rutas: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate  {
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
             let textField = alert.textFields![0] as UITextField
             nombre = textField.text!
+            if self.manejador!.location?.coordinate != nil {
+                var punto = CLLocationCoordinate2D()
+                punto.latitude = (self.manejador!.location?.coordinate.latitude)!
+                punto.longitude = (self.manejador!.location?.coordinate.longitude)!
+                
+                let puntoActual = Punto(nombre: nombre, coordenadas: punto, foto: UIImage())
+                
+                self.ruta!.puntos.append(puntoActual)
+                
+                var puntoLugar = MKPlacemark(coordinate: punto, addressDictionary: nil)
+                let destino = MKMapItem(placemark: puntoLugar)
+                destino.name = nombre
+                
+                self.anotaPunto(destino)
+                let indice = (self.ruta?.puntos.count)! - 2
+                let puntoCoor = CLLocationCoordinate2D(latitude: self.ruta!.puntos[indice].coordenadas.latitude, longitude: self.ruta!.puntos[indice].coordenadas.longitude)
+                puntoLugar = MKPlacemark(coordinate: puntoCoor, addressDictionary: nil)
+                let origen = MKMapItem(placemark: puntoLugar)
+                origen.name = self.ruta!.puntos[indice].nombre
+                
+                self.obtenerRuta(origen, destino: destino)
+                
+                self.centrarMapa()
+                
+                self.sesion.sendMessage(["ruta": self.ruta!], replyHandler: nil, errorHandler: nil)
+            }
+
+            
         }))
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .Cancel, handler: { (action) -> Void in
+            print("Cancelar")
+        }))
+        
         self.presentViewController(alert, animated: true, completion: nil)
         
-        if manejador!.location?.coordinate != nil {
-            var punto = CLLocationCoordinate2D()
-            punto.latitude = (manejador!.location?.coordinate.latitude)!
-            punto.longitude = (manejador!.location?.coordinate.longitude)!
-            
-            let puntoActual = Punto(nombre: nombre, coordenadas: punto, foto: UIImage())
-            
-            ruta!.puntos.append(puntoActual)
-            
-            var puntoLugar = MKPlacemark(coordinate: punto, addressDictionary: nil)
-            let destino = MKMapItem(placemark: puntoLugar)
-            destino.name = nombre
-            
-            self.anotaPunto(destino)
-            let indice = (ruta?.puntos.count)! - 2
-            let puntoCoor = CLLocationCoordinate2D(latitude: ruta!.puntos[indice].coordenadas.latitude, longitude: ruta!.puntos[indice].coordenadas.longitude)
-            puntoLugar = MKPlacemark(coordinate: puntoCoor, addressDictionary: nil)
-            let origen = MKMapItem(placemark: puntoLugar)
-            origen.name = ruta!.puntos[indice].nombre
-            
-            self.obtenerRuta(origen, destino: destino)
-        }
-
+        
     }
 
     @IBAction func tomarFoto(sender: AnyObject) {
+        
+        let alertController = UIAlertController(title: "Nueva foto", message: "Indique la fuente de la foto:", preferredStyle: .Alert)
+        
+        // Create the actions.
+        if (UIImagePickerController.isSourceTypeAvailable(.Camera)) {
+            let accionCamara = UIAlertAction(title: "Cámara", style: .Default) { _ in
+                self.miPicker.sourceType = UIImagePickerControllerSourceType.Camera
+                self.presentViewController(self.miPicker, animated: true, completion: nil)
+            }
+            alertController.addAction(accionCamara)
+        }
+        
+        
+        let accionAlbum = UIAlertAction(title: "Álbum", style: .Default) { _ in
+            self.miPicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            self.presentViewController(self.miPicker, animated: true, completion: nil)
+        }
+        
+        let cancelarAlbum = UIAlertAction(title: "Cancelar", style: .Default) { _ in
+            print("Cancelar")
+        }
+        
+        // Add the actions.
+        
+        alertController.addAction(accionAlbum)
+        alertController.addAction(cancelarAlbum)
+
+        presentViewController(alertController, animated: true, completion: nil)
+        
     }
 
 }
