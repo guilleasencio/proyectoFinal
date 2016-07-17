@@ -17,6 +17,11 @@
 		3F05F7EC1D3B923B000D47A3 /* QR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05F7EB1D3B923B000D47A3 /* QR.swift */; };
 		3F05F7EE1D3B92A3000D47A3 /* detalleQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05F7ED1D3B92A3000D47A3 /* detalleQR.swift */; };
 		3F05F7F01D3B93E4000D47A3 /* QRNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05F7EF1D3B93E4000D47A3 /* QRNavigation.swift */; };
+		3F05F7F21D3B9F1C000D47A3 /* Rutas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05F7F11D3B9F1C000D47A3 /* Rutas.swift */; };
+		3F05F7F41D3BA34B000D47A3 /* Ruta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05F7F31D3BA34B000D47A3 /* Ruta.swift */; };
+		3F05F7F61D3BA39E000D47A3 /* Punto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05F7F51D3BA39E000D47A3 /* Punto.swift */; };
+		3F05F83B1D3BD678000D47A3 /* TablaRutas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05F83A1D3BD678000D47A3 /* TablaRutas.swift */; };
+		3F05F83D1D3BDA1D000D47A3 /* NuevaRuta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05F83C1D3BDA1D000D47A3 /* NuevaRuta.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,11 @@
 		3F05F7EB1D3B923B000D47A3 /* QR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QR.swift; sourceTree = "<group>"; };
 		3F05F7ED1D3B92A3000D47A3 /* detalleQR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detalleQR.swift; sourceTree = "<group>"; };
 		3F05F7EF1D3B93E4000D47A3 /* QRNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRNavigation.swift; sourceTree = "<group>"; };
+		3F05F7F11D3B9F1C000D47A3 /* Rutas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rutas.swift; sourceTree = "<group>"; };
+		3F05F7F31D3BA34B000D47A3 /* Ruta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ruta.swift; sourceTree = "<group>"; };
+		3F05F7F51D3BA39E000D47A3 /* Punto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Punto.swift; sourceTree = "<group>"; };
+		3F05F83A1D3BD678000D47A3 /* TablaRutas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablaRutas.swift; sourceTree = "<group>"; };
+		3F05F83C1D3BDA1D000D47A3 /* NuevaRuta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NuevaRuta.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +105,11 @@
 				3F05F7EB1D3B923B000D47A3 /* QR.swift */,
 				3F05F7ED1D3B92A3000D47A3 /* detalleQR.swift */,
 				3F05F7EF1D3B93E4000D47A3 /* QRNavigation.swift */,
+				3F05F7F11D3B9F1C000D47A3 /* Rutas.swift */,
+				3F05F7F31D3BA34B000D47A3 /* Ruta.swift */,
+				3F05F7F51D3BA39E000D47A3 /* Punto.swift */,
+				3F05F83A1D3BD678000D47A3 /* TablaRutas.swift */,
+				3F05F83C1D3BDA1D000D47A3 /* NuevaRuta.swift */,
 			);
 			path = proyectoFinal;
 			sourceTree = "<group>";
@@ -212,9 +227,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F05F7EE1D3B92A3000D47A3 /* detalleQR.swift in Sources */,
+				3F05F7F41D3BA34B000D47A3 /* Ruta.swift in Sources */,
 				3F05F7CB1D3B8753000D47A3 /* ViewController.swift in Sources */,
+				3F05F7F61D3BA39E000D47A3 /* Punto.swift in Sources */,
+				3F05F83D1D3BDA1D000D47A3 /* NuevaRuta.swift in Sources */,
+				3F05F83B1D3BD678000D47A3 /* TablaRutas.swift in Sources */,
 				3F05F7F01D3B93E4000D47A3 /* QRNavigation.swift in Sources */,
 				3F05F7D11D3B8753000D47A3 /* proyectoFinal.xcdatamodeld in Sources */,
+				3F05F7F21D3B9F1C000D47A3 /* Rutas.swift in Sources */,
 				3F05F7EC1D3B923B000D47A3 /* QR.swift in Sources */,
 				3F05F7C91D3B8753000D47A3 /* AppDelegate.swift in Sources */,
 			);
