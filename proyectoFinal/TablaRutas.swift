@@ -10,7 +10,14 @@ import UIKit
 import MapKit
 import CoreLocation
 
+protocol TablaRutaDelegate: class {
+    func mantenerRutas(datos: Array<Ruta>)
+}
+
+
 class TablaRutas: UITableViewController, NuevaRutaDelegate, MKMapViewDelegate, CLLocationManagerDelegate {
+    
+    weak var delegate: TablaRutaDelegate?
     
     var rutas: Array<Ruta> = Array<Ruta>()
     
@@ -56,6 +63,13 @@ class TablaRutas: UITableViewController, NuevaRutaDelegate, MKMapViewDelegate, C
     override func viewWillAppear(animated: Bool) {
         
         self.tableView.reloadData()
+        
+    }
+    
+    
+    override func viewWillDisappear(animated: Bool) {
+        
+        self.delegate?.mantenerRutas(self.rutas)
         
     }
     
