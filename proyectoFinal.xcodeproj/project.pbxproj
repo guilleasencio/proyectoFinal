@@ -29,8 +29,8 @@
 		3F05F8551D3C2478000D47A3 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05F8541D3C2478000D47A3 /* ExtensionDelegate.swift */; };
 		3F05F8571D3C2478000D47A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F05F8561D3C2478000D47A3 /* Assets.xcassets */; };
 		3F05F85B1D3C2478000D47A3 /* proyectoFinalWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3F05F8411D3C2478000D47A3 /* proyectoFinalWatch.app */; };
-		3F05F8671D3C3513000D47A3 /* Punto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05F8651D3C3513000D47A3 /* Punto.swift */; };
-		3F05F8681D3C3513000D47A3 /* Ruta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05F8661D3C3513000D47A3 /* Ruta.swift */; };
+		3F91F4121D3D8C8B00B8E506 /* Punto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91F4101D3D8C8B00B8E506 /* Punto.swift */; };
+		3F91F4131D3D8C8B00B8E506 /* Ruta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91F4111D3D8C8B00B8E506 /* Ruta.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,8 +112,8 @@
 		3F05F8561D3C2478000D47A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F05F8581D3C2478000D47A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F05F8641D3C2A4C000D47A3 /* proyectoFinalWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "proyectoFinalWatch Extension.entitlements"; sourceTree = "<group>"; };
-		3F05F8651D3C3513000D47A3 /* Punto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Punto.swift; sourceTree = "<group>"; };
-		3F05F8661D3C3513000D47A3 /* Ruta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ruta.swift; sourceTree = "<group>"; };
+		3F91F4101D3D8C8B00B8E506 /* Punto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Punto.swift; sourceTree = "<group>"; };
+		3F91F4111D3D8C8B00B8E506 /* Ruta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ruta.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,12 +207,12 @@
 		3F05F8511D3C2478000D47A3 /* proyectoFinalWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				3F91F4101D3D8C8B00B8E506 /* Punto.swift */,
+				3F91F4111D3D8C8B00B8E506 /* Ruta.swift */,
 				3F05F8641D3C2A4C000D47A3 /* proyectoFinalWatch Extension.entitlements */,
 				3F05F8521D3C2478000D47A3 /* InterfaceController.swift */,
 				3F05F8541D3C2478000D47A3 /* ExtensionDelegate.swift */,
 				3F05F8561D3C2478000D47A3 /* Assets.xcassets */,
-				3F05F8651D3C3513000D47A3 /* Punto.swift */,
-				3F05F8661D3C3513000D47A3 /* Ruta.swift */,
 				3F05F8581D3C2478000D47A3 /* Info.plist */,
 			);
 			path = "proyectoFinalWatch Extension";
@@ -415,8 +415,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F05F8671D3C3513000D47A3 /* Punto.swift in Sources */,
-				3F05F8681D3C3513000D47A3 /* Ruta.swift in Sources */,
+				3F91F4121D3D8C8B00B8E506 /* Punto.swift in Sources */,
+				3F91F4131D3D8C8B00B8E506 /* Ruta.swift in Sources */,
 				3F05F8551D3C2478000D47A3 /* ExtensionDelegate.swift in Sources */,
 				3F05F8531D3C2478000D47A3 /* InterfaceController.swift in Sources */,
 			);
@@ -682,6 +682,7 @@
 				3F05F7E71D3B8753000D47A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F05F7E81D3B8753000D47A3 /* Build configuration list for PBXNativeTarget "proyectoFinalTests" */ = {
 			isa = XCConfigurationList;
@@ -690,6 +691,7 @@
 				3F05F7EA1D3B8753000D47A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F05F85C1D3C2478000D47A3 /* Build configuration list for PBXNativeTarget "proyectoFinalWatch Extension" */ = {
 			isa = XCConfigurationList;
@@ -698,6 +700,7 @@
 				3F05F85E1D3C2478000D47A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F05F8601D3C2478000D47A3 /* Build configuration list for PBXNativeTarget "proyectoFinalWatch" */ = {
 			isa = XCConfigurationList;
@@ -706,6 +709,7 @@
 				3F05F8621D3C2478000D47A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
